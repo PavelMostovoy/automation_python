@@ -1,4 +1,4 @@
-class FirstClass :
+class FirstClass() :
     company = "Our Company"
     name = "default"
     password = "default"
@@ -7,8 +7,13 @@ class FirstClass :
         self.__name = name
         self.__password = password
 
-    def first_method(self, separator):
-        return self.__name + f"{separator}" +  self.__password
+    def method_1(self):
+        self.first_method(self.name)
+
+
+    @classmethod
+    def first_method(cls, separator):
+        return cls.name + f"{separator}" + cls.password
 
 
 
@@ -20,10 +25,10 @@ if __name__ == "__main__":
    user = FirstClass(data[0], data[1])
    user_1 = FirstClass(data[1],data[0])
 
-   print(user.__name)
+   # print(user.__name)
 
    print(f"{user.name=}, {user.password=}, {user.company=}")
-
+   user.method_1()
    print(user.first_method("        "))
    print(user_1.first_method("________"))
 
