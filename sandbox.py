@@ -1,4 +1,4 @@
-from hidden import our_func
+from pytest_examples.hidden import our_func
 
 '''
 case 1 : a = 10 b = 5 c = 3  => 8

@@ -83,6 +83,6 @@ print(user.counter)
 print(user_1.counter)
 print(user.get_email())
 
-user.print()
+user._print()
 
 print(user_1.get_email())
