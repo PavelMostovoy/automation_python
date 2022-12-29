@@ -1,8 +1,6 @@
 import pytest
 from hidden import our_func
 
-def test_funct_1():
-    assert our_func(1, 2, 3) != 3
 
 
 def test_funct_2():
