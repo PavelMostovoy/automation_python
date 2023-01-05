@@ -25,13 +25,18 @@ def teardown_function(function):
     print("function teardown")
 
 
-def test_numbers_3_4(request):
+@pytest.mark.smoke
+@pytest.mark.parametrize()
+def test_numbers_3_4():
     print("test 3*4")
-    request.data = 345
+    pytest.data = 345
     assert 3 * 4 == 12
 
 
-def test_strings_a_3(request):
-    local_data = request.data
+@pytest.mark.smoke
+@pytest.mark.slow
+def test_strings_a_3():
+    local_data = pytest.data
     print("test a*3")
-    assert 'a' * 3 == 'aaa'
+    assert local_data == 345
+    # assert 'a' * 3 == 'aaaa'
