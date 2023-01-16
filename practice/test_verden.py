@@ -12,7 +12,6 @@ from selenium.webdriver.common.by import By
 import page_obj
 
 
-
 expected_url = f'{page_obj.url}'
 
 driver = webdriver.Chrome()
@@ -23,5 +22,4 @@ search_filed.send_keys(page_obj.info)
 # search_filed.send_keys(Keys.ENTER)
 
 driver.find_element(By.XPATH, page_obj.search_button_id).click()
-
 time.sleep(100)
