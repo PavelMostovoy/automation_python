@@ -9,17 +9,17 @@ import requests
 from selenium import webdriver
 from selenium.webdriver.common.keys import Keys
 from selenium.webdriver.common.by import By
-import page_obj
 
+from data import Config, Wikipedia
 
-expected_url = f'{page_obj.url}'
+expected = Wikipedia(Config.url)
 
 driver = webdriver.Chrome()
-driver.get(expected_url)
+driver.get(expected.url)
 
-search_filed = driver.find_element(By.ID, page_obj.search_field_id)
-search_filed.send_keys(page_obj.info)
+
+search_filed = driver.find_element(By.ID, expected.search_field_id)
+search_filed.send_keys(expected.info)
 # search_filed.send_keys(Keys.ENTER)
 
-driver.find_element(By.XPATH, page_obj.search_button_id).click()
-time.sleep(100)
+driver.find_element(By.XPATH, expected.search_button_id).click()
