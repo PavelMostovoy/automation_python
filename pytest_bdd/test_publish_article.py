@@ -18,7 +18,7 @@ def step_impl(request):
 def step_impl(request):
     client = request.driver
 
-    response = client.get(request.url)
+    client.get(request.url)
     time.sleep(5)
 
 
