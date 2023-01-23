@@ -10,9 +10,9 @@ Feature: Blog
     Then Werify the page content
 
     Examples:
-      | url                   |
-      | https://wikipedia.org |
-      | https://aqa.science   |
-      | https://google.com    |
-      | https://adv.wiki      |
+      | url                   | gg|
+      | https://wikipedia.org | g|
+      | https://aqa.science   |g |
+      | https://google.com    | g|
+      | https://adv.wiki      | g|
 
