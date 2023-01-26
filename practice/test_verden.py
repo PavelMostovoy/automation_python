@@ -93,4 +93,4 @@ def test_pattern0(landing_page):
     first_heading_id = "firstHeading"
     search_result = driver.find_element(By.ID, first_heading_id)
     logger.debug(f'Found result is {search_result.text}')
-    assert search_result.text == 'World War I'
+    assert search_result.text == 'World War I', logger.error("some variable")
