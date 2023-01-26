@@ -5,9 +5,23 @@ import logging
 from assertpy import assert_that
 import pytest
 
-logging.basicConfig(filename='test.log', encoding='utf-8', level=logging.DEBUG)
+# create logger
+logger = logging.getLogger('test_logger')
+logger.setLevel(logging.DEBUG)
 
-logger = logging.getLogger()
+# create console handler and set level to debug
+ch = logging.FileHandler("test.log")
+ch.setLevel(logging.DEBUG)
+
+# create formatter
+formatter = logging.Formatter('%(asctime)s - %(name)s - %(levelname)s - %(message)s')
+
+# add formatter to file_handlerh
+ch.setFormatter(formatter)
+
+# add file_handlerh to logger
+logger.addHandler(ch)
+
 
 url_0 = "https://www.aqa.science/"
 
