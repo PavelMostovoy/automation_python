@@ -35,4 +35,6 @@ async def main():
             pool, cpu_bound)
         print('custom process pool', result)
 
-asyncio.run(main())
+
+if __name__ == "__main__":
+    asyncio.run(main())
