@@ -45,7 +45,6 @@ def init_step():
     driver = webdriver.Chrome()
     yield driver
     logger.info('Test finished')
-    driver.close()
 
 @pytest.fixture(scope="function")
 def landing_page(init_step):
