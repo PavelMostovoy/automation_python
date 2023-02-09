@@ -25,3 +25,4 @@ urllib3==1.26.13
 wrapt==1.14.1
 behave
 assertpy
+sqlalchemy == 1.4.30
