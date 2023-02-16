@@ -5,10 +5,11 @@ Feature: showing off behave
     When we open expected page
     Then Verify that code is equal to '<code>'
     Examples:
-      | url                                      | code |
-      | https://docs.qameta.io/allure/#_python   | 200  |
-      | https://jenkins.hillel.it/job/adasdasda/ | 403  |
-      | https://www.wikipedia.org/               | 200  |
-      | https://en.wikipedia.org/a               | 404  |
-      | https://www.wikipedia.net/               | 500  |
-      | https://en.wikipedia.org/a               | 403  |
+      | url    | code |
+      | first  | 200  |
+      | second | 403  |
+      | third  | 200  |
+      | fourth | 404  |
+      | fifth  | 500  |
+      | six    | 403  |
+      | seven  | 200  |
