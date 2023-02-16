@@ -9,9 +9,8 @@ connection = engine.connect()
 
 metadata = db.MetaData()
 
-data = db.Table('data', metadata , autoload=True, autoload_with=engine)
+data = db.Table('data', metadata, autoload=True, autoload_with=engine)
 secondary = db.Table('secondary', metadata, autoload=True, autoload_with=engine)
-
 
 query = db.select(data.c.price)
 
@@ -19,23 +18,23 @@ received = connection.execute(query)
 
 print(received.fetchone())
 
-query = db.select(data.c.date,).join(secondary, data.c.price <= secondary.c.price)
-
-
+query = db.select(data.c.date, ).join(secondary,
+                                      data.c.price <= secondary.c.price)
 
 result = connection.execute(query)
 
 print(result.fetchall())
 
-
-exit()
 # Print the column names
 
 # example for single table
-# query = db.select(census.c.date).filter(census.c.qty == 100,
-#                                         census.c.trans == "BUY")
+query = db.select(data.c.date).filter(data.c.qty >= 100,
+                                      data.c.trans == "BUY",
+                                      data.c.price < 200)
 
-query = db.select(data.c.date,).join(secondary, data.c.id == secondary.c.id)
+print(query)
+
+query = db.select(data.c.date, ).join(secondary, data.c.id == secondary.c.id)
 
 print(query)
 

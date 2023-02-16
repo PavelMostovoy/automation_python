@@ -1,3 +1,4 @@
+import requests
 from assertpy import assert_that
 from behave import *
 
@@ -26,6 +27,40 @@ def second_user(context, name):
     print(f"added name {name}")
     return name
 
-@then("Compare Users names (?P<amount>\d+)")
-def some_name_(context, amount):
+@then("Compare Users names")
+def some_name_(context):
     assert_that(context.login).is_not_none()
+
+
+@given("URL '(?P<url>.+)' as endpoint")
+def step_impl(context, url):
+    """
+    :type context: behave.runner.Context
+    :type url: str
+    """
+    context.given_url = url
+
+
+@when("we open expected page")
+def step_impl(context):
+    """
+    :type context: behave.runner.Context
+    """
+    response = requests.get(context.given_url)
+    context.received_response = response
+
+
+
+@then("Verify that code is equal to '(?P<code>.*)'")
+def step_impl(context, code):
+    """
+    :type context: behave.runner.Context
+    :type code: str
+    """
+    code = int(code)
+    response = context.received_response.status_code
+
+    assert  response == code,  f"Expected {code} received: {response} "
+
+
+
