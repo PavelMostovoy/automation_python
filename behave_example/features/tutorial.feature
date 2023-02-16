@@ -7,9 +7,9 @@ Feature: showing off behave
     Examples:
       | url    | code |
       | first  | 200  |
-      | second | 403  |
+      | second | 404  |
       | third  | 200  |
-      | fourth | 404  |
-      | fifth  | 500  |
-      | six    | 403  |
+      | fourth | 200  |
+      | fifth  | 404  |
+      | six    | 404  |
       | seven  | 200  |
