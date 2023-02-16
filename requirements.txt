@@ -26,3 +26,4 @@ wrapt==1.14.1
 behave
 assertpy
 sqlalchemy == 1.4.30
+allure-behave
