@@ -7,6 +7,8 @@ Feature: showing off behave
     Examples:
       | url                                      | code |
       | https://docs.qameta.io/allure/#_python   | 200  |
-      | https://jenkins.hillel.it/job/adasdasda/ | 403  |
+      | https://jenkins.hillel.it/job/adasdasda/ | 404  |
       | https://www.wikipedia.org/               | 200  |
+      | https://en.wikipedia.org/a               | 404  |
+      | https://www.wikipedia.net/               | 200  |
       | https://en.wikipedia.org/a               | 404  |
