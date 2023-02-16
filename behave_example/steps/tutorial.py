@@ -52,8 +52,8 @@ def step_impl(context, url):
     :type context: behave.runner.Context
     :type url: str
     """
-    url = url_data[url]
-    # url = url_data.get(url, "https://google.com")
+    # url = url_data[url]
+    url = url_data.get(url, "https://google.com")
     context.given_url = url
 
 
