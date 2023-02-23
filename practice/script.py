@@ -19,11 +19,12 @@ for i in new_list:
     for n, j in enumerate(i):
         if j == 'code:':
             try:
-                print(i[n+1])
+                i[n+1]
             except IndexError:
                 pass
             else:
-                if i[n+1].isdigit():
+                value = i[n+1]
+                if value.isdigit() and len(value) == 4:
                     print(f'{i[n+1]}')
 
 
