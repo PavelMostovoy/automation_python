@@ -40,6 +40,10 @@ class JsonVerifications(InitClass):
     def image(self):
         return self._image
 
+    @image.setter
+    def image(self,value):
+        self._image = value
+
 
 class Validation(JsonVerifications):
 

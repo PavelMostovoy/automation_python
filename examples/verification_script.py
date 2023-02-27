@@ -26,4 +26,5 @@ obj.add_item()
 print(obj.get_counter())
 obj.add_item()
 print(obj.image)
+obj.image = 1234
 print(obj.print_method())
