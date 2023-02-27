@@ -17,7 +17,7 @@ class JsonVerifications(InitClass):
 
     def __init__(self, value = False):
         self.text = "initial test"
-        self.image = 123456
+        self._image = 123456
         self.__counter_for_add = 0
         if value:
             self.data = "ddddd"
@@ -26,7 +26,7 @@ class JsonVerifications(InitClass):
     def add_item(self):
         self.__counter_for_add += 1
         self.text = "modified test"
-        self.image = [1,2,3,4]
+        self._image = [1,2,3,4]
 
 
     def get_counter(self):
@@ -35,6 +35,10 @@ class JsonVerifications(InitClass):
 
     def get_text(self):
         return self.text
+
+    @property
+    def image(self):
+        return self._image
 
 
 class Validation(JsonVerifications):
@@ -46,9 +50,4 @@ class Validation(JsonVerifications):
 
     def print_method(self):
         print(self.data)
-
-    def add_item(self):
-        super().add_item()
-        self.counter_for_add += 100
-        self.text = "modified test  multy"
 

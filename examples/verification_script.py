@@ -25,5 +25,5 @@ obj.__counter_for_add = 123
 obj.add_item()
 print(obj.get_counter())
 obj.add_item()
-print(obj.text)
+print(obj.image)
 print(obj.print_method())
