@@ -1,3 +1,4 @@
+import subprocess
 import time
 
 from selenium import webdriver
@@ -6,11 +7,25 @@ import pytest
 from page_objects import PageObject as PO
 from page_objects import WikipediaPage
 
+options = webdriver.ChromeOptions()
+options.add_argument('--ignore-ssl-errors=yes')
+options.add_argument('--ignore-certificate-errors')
+
+@pytest.fixture(scope="module", autouse=True)
+def docker_setup():
+    subprocess.run(f"docker run -d --name selenium_chrome -p 4444:4444 selenium/standalone-chrome",
+                   shell=True, check=True)
+    time.sleep(5)
+    yield
+    subprocess.run("docker rm --force selenium_chrome", shell=True, check=True)
+
+
 
 @pytest.fixture(scope="function")
 def driver():
     url = "https://wikipedia.org"
-    driver = webdriver.Chrome()
+    driver = webdriver.Remote(
+            command_executor=f'http://localhost:4444/wd/hub', options=options)
     driver.implicitly_wait(30)
     driver.get(url)
     time.sleep(1)
