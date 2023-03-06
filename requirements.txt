@@ -27,3 +27,4 @@ behave
 assertpy
 sqlalchemy == 1.4.30
 allure-behave
+seleniun
