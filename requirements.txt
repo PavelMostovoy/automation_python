@@ -23,8 +23,10 @@ tomlkit==0.11.6
 typing_extensions==4.4.0
 urllib3==1.26.13
 wrapt==1.14.1
-behave
-assertpy
+behave~=1.2.6
+assertpy~=1.1
 sqlalchemy == 1.4.30
 allure-behave
-seleniun
+
+selenium~=4.7.2
+pytest-bdd~=6.1.1
